@@ -1,2 +1,2 @@
 # Spring-Integration
-Spring Integration Demo
+Spring Spring-MVC Mybatis Integration Demo

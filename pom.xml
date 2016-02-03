@@ -22,6 +22,7 @@
 		<spring.version>4.0.0.RELEASE</spring.version>
 		<junit.version>4.10</junit.version>
 		<servlet-api.version>2.5</servlet-api.version>
+		<joda-time.version>2.9.1</joda-time.version>
 	</properties>
 
 	<dependencyManagement>
@@ -39,6 +40,13 @@
 				<artifactId>servlet-api</artifactId>
 				<version>${servlet-api.version}</version>
 				<scope>provided</scope>
+			</dependency>
+
+			<!-- joda-time -->
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>${joda-time.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

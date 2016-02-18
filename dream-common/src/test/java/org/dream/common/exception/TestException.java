@@ -7,6 +7,7 @@ import org.junit.Test;
 public class TestException {
 
 	private static final int MIN_LENGTH = 10;
+	
 
 	@Test
 	public void example1() {
@@ -44,4 +45,5 @@ public class TestException {
 		ResourceBundle bundle = ResourceBundle.getBundle("org.dream.common.exceptions");
 		return bundle.getString(key);
 	}
+	
 }

@@ -2,13 +2,14 @@ package org.dream.common.exception;
 
 import java.util.ResourceBundle;
 
+import org.dream.common.exception.enums.UserCode;
+import org.dream.common.exception.enums.ValidationCode;
 import org.junit.Test;
 
 public class TestException {
 
 	private static final int MIN_LENGTH = 10;
 	
-
 	@Test
 	public void example1() {
 		try {
@@ -42,7 +43,7 @@ public class TestException {
 			return null;
 		}
 		String key = errorCode.getClass().getSimpleName() + "__" + errorCode;
-		ResourceBundle bundle = ResourceBundle.getBundle("org.dream.common.exceptions");
+		ResourceBundle bundle = ResourceBundle.getBundle("org.dream.common.exception.exceptions");
 		return bundle.getString(key);
 	}
 	

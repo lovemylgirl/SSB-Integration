@@ -1,4 +1,6 @@
-package org.dream.common.exception;
+package org.dream.common.exception.enums;
+
+import org.dream.common.exception.ErrorCode;
 
 public enum UserCode implements ErrorCode {
 

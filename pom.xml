@@ -27,7 +27,8 @@
 		<mybatis-spring.version>1.2.2</mybatis-spring.version>
 		<pagehelper.version>3.6.3</pagehelper.version>
 		<mapper.version>3.3.0</mapper.version>
-		
+		<commons-lang3.version>3.4</commons-lang3.version>
+
 		<!-- 数据库 -->
 		<mysql.version>5.1.21</mysql.version>
 		<druid-version>1.0.11</druid-version>
@@ -40,6 +41,11 @@
 		<slf4j.version>1.6.4</slf4j.version>
 		<logback-core.version>1.1.2</logback-core.version>
 		<logback-classic.version>1.1.2</logback-classic.version>
+
+		<!-- json -->
+		<jackson-core.vsersion>2.0.0</jackson-core.vsersion>
+		<jackson-databind.version>2.0.0</jackson-databind.version>
+		<jackson-annotations.version>2.0.0</jackson-annotations.version>
 	</properties>
 
 	<dependencyManagement>
@@ -96,8 +102,14 @@
 				<artifactId>spring-jdbc</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
-
 			<!-- spring end -->
+
+			<!-- apache commons -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
 
 			<!-- test -->
 			<dependency>
@@ -112,6 +124,23 @@
 				<artifactId>spring-test</artifactId>
 				<version>${spring.version}</version>
 				<scope>provided</scope>
+			</dependency>
+
+			<!-- json -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>${jackson-core.vsersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson-core.vsersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+				<version>${jackson-core.vsersion}</version>
 			</dependency>
 
 
@@ -188,6 +217,8 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql.version}</version>
 			</dependency>
+
+		
 
 		</dependencies>
 	</dependencyManagement>

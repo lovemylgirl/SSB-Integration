@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>dream</groupId>
 		<artifactId>dream</artifactId>
-		<version>0.0.1</version>
+		<version>${dream.version}</version>
 	</parent>
 	<groupId>dream-common</groupId>
 	<artifactId>dream-common</artifactId>
@@ -21,6 +21,17 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<!-- apache commons -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
 		</dependency>
 
 		<dependency>
@@ -66,6 +77,5 @@
 			<version>2.6</version>
 			<systemPath>${project.basedir}/src/lib/CCP_REST_SDK_JAVA_v2.6r.jar</systemPath>
 		</dependency>
-
 	</dependencies>
 </project>

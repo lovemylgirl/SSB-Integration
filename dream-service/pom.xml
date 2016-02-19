@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>dream</groupId>
 		<artifactId>dream</artifactId>
-		<version>0.0.1</version>
+		<version>${dream.version}</version>
 	</parent>
 	<groupId>dream-service</groupId>
 	<artifactId>dream-service</artifactId>
@@ -16,10 +16,54 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+
+		<!-- testing begin -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- testing end -->
+
+		<dependency>
+			<groupId>dream-common</groupId>
+			<artifactId>dream-common</artifactId>
+			<version>${dream.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>dream-dao</groupId>
+			<artifactId>dream-dao</artifactId>
+			<version>${dream.version}</version>
 		</dependency>
 	</dependencies>
 </project>

@@ -12,24 +12,61 @@
 	<artifactId>dream-web</artifactId>
 
 	<packaging>war</packaging>
+	<build>
+		<finalName>ROOT</finalName>
+	</build>
 	<name>dream-web Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<!-- tomcat 服务器中已经存在，不用打包进去 -->
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- evchar begin -->
+		<dependency>
+			<groupId>dream-service</groupId>
+			<artifactId>dream-service</artifactId>
+			<version>${dream.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>dream-common</groupId>
+			<artifactId>dream-common</artifactId>
+			<version>${dream.version}</version>
+		</dependency>
+		<!-- evchar end -->
+
 	</dependencies>
-	<build>
-		<finalName>dream-web</finalName>
-	</build>
 </project>

@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.dream.common.ApiCode;
 import org.dream.common.exception.EvcharException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
@@ -31,15 +33,14 @@ public abstract class AbstractController {
 	@Resource
 	private ObjectMapper jacksonObjectMapper;
 
-	// private static final Logger logger =
-	// LoggerFactory.getLogger(AbstractController.class);
+	private static final Logger logger = LoggerFactory.getLogger(AbstractController.class);
 
 	@ExceptionHandler(EvcharException.class)
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
 	public String handleMessageException(HttpServletRequest request, EvcharException ex, HttpServletResponse response) {
-		// String requestParam = generateRequestParamStr(request);
-		// logger.info("throw EvcharException: " + requestParam);
+		String requestParam = generateRequestParamStr(request);
+		logger.info("throw EvcharException: " + requestParam);
 		return createJsonRespone(ex.getCode(), ex.getData(), ex.getMessage());
 	}
 
@@ -52,7 +53,7 @@ public abstract class AbstractController {
 		try {
 			json = this.jacksonObjectMapper.writeValueAsString(result);
 		} catch (IOException e) {
-			// logger.error("Json转换失败", e);
+			logger.error("Json转换失败", e);
 		}
 		return json;
 	}

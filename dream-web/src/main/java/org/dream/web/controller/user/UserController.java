@@ -10,6 +10,8 @@ import org.dream.common.requestparams.CheckUserParam;
 import org.dream.service.user.IUserService;
 import org.dream.web.controller.AbstractController;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,10 +22,18 @@ public class UserController extends AbstractController {
 	@Resource
 	private IUserService userService;
 
+	@Resource
+	private Validator validator;
+
 	@RequestMapping(value = "/getUserInfo")
 	@ResponseBody
-	public String checkUserExist(CheckUserParam param, HttpServletRequest request, HttpServletResponse response) {
+	public String checkUserExist(CheckUserParam param, HttpServletRequest request, HttpServletResponse response,
+			Errors errors) {
+		
+		validator.validate(param, errors);
+		handleValidFieldError(errors);
 		User user = userService.findUserId(param.getId());
 		return createJsonRespone(ApiCode.SUCCESS, user, "");
+		
 	}
 }

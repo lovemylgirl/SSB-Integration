@@ -1,8 +1,17 @@
 package org.dream.common.requestparams;
 
+import javax.validation.constraints.NotNull;
+
+import org.dream.common.valid.Password;
+
 public class CheckUserParam {
+
 	private String wechatId;
 
+	@Password
+	private String password;
+
+	@NotNull
 	private Long id;
 
 	public String getWechatId() {
@@ -19,5 +28,13 @@ public class CheckUserParam {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

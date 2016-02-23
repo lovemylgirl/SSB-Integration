@@ -41,6 +41,22 @@
 			<artifactId>spring-tx</artifactId>
 		</dependency>
 
+		<!-- log -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+		<!-- log end -->
+
 		<!-- testing begin -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -63,6 +79,12 @@
 		<dependency>
 			<groupId>dream-dao</groupId>
 			<artifactId>dream-dao</artifactId>
+			<version>${dream.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>dream-device</groupId>
+			<artifactId>dream-device</artifactId>
 			<version>${dream.version}</version>
 		</dependency>
 	</dependencies>

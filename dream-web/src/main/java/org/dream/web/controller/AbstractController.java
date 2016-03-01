@@ -1,8 +1,10 @@
 package org.dream.web.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,10 +17,13 @@ import org.dream.common.ApiCode;
 import org.dream.common.exception.EvcharException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -98,12 +103,11 @@ public abstract class AbstractController {
 	/**
 	 * 初始化绑定器 此处解决 参数Date类型
 	 * 
-	 * @DateTimeFormat 使用此注解替代
+	 * 使用@DateTimeFormat 替代  @InitBinder  需要jar:joda-time
 	 */
-	// @InitBinder
-	// public void initBinder(WebDataBinder binder) throws Exception {
-	// binder.registerCustomEditor(Date.class, new CustomDateEditor(new
-	// SimpleDateFormat("yyyy-MM-dd"), true));
-	// }
+	@InitBinder
+	public void initBinder(WebDataBinder binder) throws Exception {
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
+	}
 
 }

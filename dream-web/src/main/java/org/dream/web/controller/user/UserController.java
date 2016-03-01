@@ -27,7 +27,7 @@ public class UserController extends AbstractController {
 
 	@RequestMapping(value = "/getUserInfo")
 	@ResponseBody
-	public String checkUserExist(CheckUserParam param, HttpServletRequest request, HttpServletResponse response,
+	public String getUserInfo(CheckUserParam param, HttpServletRequest request, HttpServletResponse response,
 			Errors errors) {
 		
 		validator.validate(param, errors);

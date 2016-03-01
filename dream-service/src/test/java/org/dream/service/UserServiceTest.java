@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:config/content-service.xml" })
 public class UserServiceTest {
@@ -21,4 +22,5 @@ public class UserServiceTest {
 		User user = userService.findUserId(52L);
 		System.out.println(user.getWechatId() + " : " + user.getNickName());
 	}
+
 }

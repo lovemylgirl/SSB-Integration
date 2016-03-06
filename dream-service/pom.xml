@@ -87,5 +87,13 @@
 			<artifactId>dream-device</artifactId>
 			<version>${dream.version}</version>
 		</dependency>
+
+		<!-- groupId -->
+		<dependency>
+			<groupId>dream</groupId>
+			<artifactId>dream-mongodb</artifactId>
+			<version>${dream.version}</version>
+		</dependency>
+
 	</dependencies>
 </project>

@@ -29,11 +29,9 @@ public class UserController extends AbstractController {
 	@ResponseBody
 	public String getUserInfo(CheckUserParam param, HttpServletRequest request, HttpServletResponse response,
 			Errors errors) {
-		
 		validator.validate(param, errors);
 		handleValidFieldError(errors);
 		User user = userService.findUserId(param.getId());
 		return createJsonRespone(ApiCode.SUCCESS, user, "");
-		
 	}
 }

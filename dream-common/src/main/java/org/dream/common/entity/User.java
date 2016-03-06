@@ -8,8 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.dream.common.util.DateSerializer;
+
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 
 @Table(name = "evchar_user")
 public class User extends AbstractEntity {
@@ -39,12 +40,12 @@ public class User extends AbstractEntity {
 	@Column(name = "head_img_url")
 	private String headImgUrl;
 
+	@JsonSerialize(using=DateSerializer.class)
 	@Column(name = "create_time")
-	@JsonSerialize(using = DateSerializer.class)
 	private Date createTime;
 
+	@JsonSerialize(using=DateSerializer.class)
 	@Column(name = "update_time")
-	@JsonSerialize(using = DateSerializer.class)
 	private Date updateTime;
 
 	@Column(name = "real_name")

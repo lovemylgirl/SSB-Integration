@@ -59,16 +59,9 @@
 		<!-- json -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
-		</dependency>
+
 
 		<!-- 验证 -->
 		<dependency>
@@ -88,6 +81,11 @@
 			<scope>system</scope>
 			<version>2.6</version>
 			<systemPath>${project.basedir}/src/lib/CCP_REST_SDK_JAVA_v2.6r.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
 		</dependency>
 	</dependencies>
 </project>

@@ -8,6 +8,7 @@
 
 	<import resource="classpath:config/context-dao.xml" />
 	<import resource="classpath:config/content-mybatis.xml" />
+	<import resource="classpath:config/mongodb-config.xml" />
 
 
 	<!-- json serializer -->
@@ -18,7 +19,6 @@
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
-
 
 
 	<!-- 增加事务管理 -->

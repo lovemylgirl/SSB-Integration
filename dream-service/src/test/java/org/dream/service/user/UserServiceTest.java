@@ -1,4 +1,4 @@
-package org.dream.service;
+package org.dream.service.user;
 
 import javax.annotation.Resource;
 

@@ -16,6 +16,6 @@ public class DeviceManager {
 		System.out.println("Netty is start....." + num);
 	}
 
-	private static DeviceAcceptor acceptor = DeviceAcceptor.getInstance();
+	// private static DeviceAcceptor acceptor = DeviceAcceptor.getInstance();
 	
 }

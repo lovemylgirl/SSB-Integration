@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="mongoServerAddress" class="com.mongodb.ServerAddress">
+		<constructor-arg name="host" value="${mongo.host}" />
+		<constructor-arg name="port" value="${mongo.port}" />
+
+	</bean>
+
+	<bean id="mongoCredential" class="com.mongodb.MongoCredential"
+		factory-method="createCredential">
+		<constructor-arg name="userName" value="${mongo.username}" />
+		<constructor-arg name="database" value="${mongo.database}" />
+		<constructor-arg name="password" value="${mongo.password}" />
+	</bean>
+
+	<bean id="mongoClient" class="com.mongodb.MongoClient"
+		destroy-method="close">
+		<constructor-arg ref="mongoServerAddress" />
+		<constructor-arg>
+			<list>
+				<ref bean="mongoCredential" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="morphia" class="org.mongodb.morphia.Morphia" />
+
+
+	<bean id="datastore" class="org.mongodb.morphia.Datastore"
+		factory-bean="morphia" factory-method="createDatastore">
+		<constructor-arg ref="mongoClient" />
+		<constructor-arg value="${mongo.database}" />
+	</bean>
+
+	<!-- 用于Index和Capped Collection(固定集合)初始化 -->
+	<bean id="morphiaInit" class="org.dream.mongodb.morphia.MorphiaInit">
+		<constructor-arg ref="morphia" />
+		<constructor-arg ref="datastore" />
+		<constructor-arg>
+			<list>
+				<value>org.dream.mongodb.entity.TestEntity</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="testEntityDao" class="org.dream.mongodb.dao.TestEntityDao">
+		<constructor-arg ref="datastore" />
+	</bean>
+
+</beans>

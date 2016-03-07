@@ -41,13 +41,13 @@
 		<constructor-arg ref="datastore" />
 		<constructor-arg>
 			<list>
-				<value>org.dream.mongodb.entity.TestEntity</value>
+				<value>org.dream.mongodb.entity.MyEntity</value>
 			</list>
 		</constructor-arg>
 	</bean>
 
-	<bean id="testEntityDao" class="org.dream.mongodb.dao.TestEntityDao">
-		<constructor-arg ref="datastore" />
+	<bean id="myEntityDao" class="org.dream.mongodb.dao.MyEntityDao">
+		<constructor-arg ref="datastore" index="0" />
 	</bean>
 
 </beans>

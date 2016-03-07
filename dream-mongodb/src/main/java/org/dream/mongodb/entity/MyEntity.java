@@ -6,13 +6,16 @@ import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 
-@Entity /*mongodb 的 注解*/
-public class TestEntity {
+@Entity /* mongodb 的 注解 */
+public class MyEntity {
 
-	@Id /*mongodb 的 注解*/
+	@Id /* mongodb 的 注解 */
 	private ObjectId id;
 
 	private String name;
+
+	private int age;
+	
 	private Date createTime;
 
 	public ObjectId getId() {
@@ -37,5 +40,13 @@ public class TestEntity {
 
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 }

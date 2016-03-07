@@ -68,6 +68,10 @@ public class UserServiceImpl implements IUserService {
 			e1.printStackTrace();
 		}
 
+		// Timer timer = new Timer();
+		// UserTask task = new UserTask();
+		// task.setUserId(id);
+		// timer.schedule(task, 5000);
 		return userMapper.selectByPrimaryKey(id);
 	}
 

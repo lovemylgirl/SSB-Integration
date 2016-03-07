@@ -6,6 +6,7 @@ import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
 
 public class QuartzUtil {
+	
 	private static SchedulerFactory ssf = new StdSchedulerFactory();
 
 	public static Scheduler getInstance() {

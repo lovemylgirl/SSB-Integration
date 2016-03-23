@@ -42,36 +42,9 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public User findUserId(Long id) {
-
 		logger.info("params : { userId = " + id + " }");
 		LoggerContext ls = (LoggerContext) LoggerFactory.getILoggerFactory();
 		StatusPrinter.print(ls);
-
-		String jobName = id + "%%" + System.currentTimeMillis();
-
-		JobDetail jobDetail = new JobDetail(jobName, QuartzManager.JOB_GROUP_NAME, TestJob.class);
-		jobDetail.getJobDataMap().put("id", id);
-
-		Scheduler scheduler = QuartzUtil.getInstance();
-
-		try {
-			scheduler.setJobFactory(factory);
-
-			SimpleTrigger trigger = new SimpleTrigger(jobName, "trigger1");
-			trigger.setStartTime(DateUtil.addSeconds(new Date(), 20));
-
-			scheduler.scheduleJob(jobDetail, trigger);
-			scheduler.start();
-
-		} catch (SchedulerException e1) {
-
-			e1.printStackTrace();
-		}
-
-		// Timer timer = new Timer();
-		// UserTask task = new UserTask();
-		// task.setUserId(id);
-		// timer.schedule(task, 5000);
 		return userMapper.selectByPrimaryKey(id);
 	}
 

@@ -3,15 +3,17 @@ package org.dream.common.entity;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.dream.common.util.DateSerializer;
+import org.dream.common.util.CustomDateSerializer;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+@Entity
 @Table(name = "evchar_user")
 public class User extends AbstractEntity {
 
@@ -40,11 +42,11 @@ public class User extends AbstractEntity {
 	@Column(name = "head_img_url")
 	private String headImgUrl;
 
-	@JsonSerialize(using=DateSerializer.class)
+	@JsonSerialize(using=CustomDateSerializer.class)
 	@Column(name = "create_time")
 	private Date createTime;
 
-	@JsonSerialize(using=DateSerializer.class)
+	@JsonSerialize(using=CustomDateSerializer.class)
 	@Column(name = "update_time")
 	private Date updateTime;
 

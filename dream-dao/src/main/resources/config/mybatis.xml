@@ -6,10 +6,14 @@
 
 	<typeAliases>
 		<typeAlias type="org.dream.common.entity.User" alias="_dreamUser" />
+		<typeAlias type="org.dream.common.entity.CarModel" alias="_carModel" />
+		<typeAlias type="org.dream.common.entity.CarBrand" alias="_carBrand" />
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mybatis-mapper/mysql_evchar_user.xml" />
+		<mapper resource="mybatis-mapper/mysql_evchar_car_brand.xml"/>
+		<mapper resource="mybatis-mapper/mysql_evchar_car_model.xml"/>
 	</mappers>
-	
+
 </configuration>

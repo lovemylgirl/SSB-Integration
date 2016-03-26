@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+
+	<property name="log_dir" value="${catalina.home}/logs/dream_evchar" />
+
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<!-- encoder 默认配置为PatternLayoutEncoder -->
 		<encoder>
@@ -9,7 +12,25 @@
 		</encoder>
 	</appender>
 
+	<!-- 按照每小时生成日志文件 -->
+	<appender name="dailyfile"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log_dir}/dream_evchar.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${log_dir}/dream_evchar.%d{yyyy-MM-dd_HH}.log</FileNamePattern>
+			<!-- 保留72小时 -->
+			<maxHistory>72</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<Pattern>
+				%d{yy-MM-dd HH:mm:ss.SSS} %-5level [%logger{36}] %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+
 	<root level="INFO">
-		<appender-ref ref="STDOUT" />
+		<appender-ref ref="dailyfile" />
 	</root>
+		
 </configuration>  

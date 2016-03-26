@@ -1,23 +1,13 @@
 package org.dream.service.user.impl;
 
-import java.util.Date;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 import org.dream.common.entity.User;
-import org.dream.common.util.DateUtil;
-import org.dream.common.util.QuartzManager;
 import org.dream.dao.user.UserMapper;
 import org.dream.service.job.MyJobFactory;
-import org.dream.service.job.QuartzUtil;
-import org.dream.service.job.TestJob;
 import org.dream.service.user.IUserService;
-import org.quartz.JobDetail;
-import org.quartz.Scheduler;
-import org.quartz.SchedulerException;
-import org.quartz.SimpleTrigger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -29,7 +19,7 @@ import ch.qos.logback.core.util.StatusPrinter;
 public class UserServiceImpl implements IUserService {
 
 	public UserServiceImpl() {
-		System.out.println("*****UserServiceImpl*****");
+		System.out.println(String.format("%s excuted !", this.getClass().getSimpleName()));
 	}
 
 	@Resource

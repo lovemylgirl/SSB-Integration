@@ -46,8 +46,10 @@
 		</constructor-arg>
 	</bean>
 
+
 	<bean id="myEntityDao" class="org.dream.mongodb.dao.MyEntityDao">
 		<constructor-arg ref="datastore" index="0" />
 	</bean>
+
 
 </beans>

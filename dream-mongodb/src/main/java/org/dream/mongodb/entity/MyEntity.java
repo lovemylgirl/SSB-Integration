@@ -15,7 +15,7 @@ public class MyEntity {
 	private String name;
 
 	private int age;
-	
+
 	private Date createTime;
 
 	public ObjectId getId() {

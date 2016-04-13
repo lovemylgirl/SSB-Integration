@@ -1,5 +1,8 @@
 package cn.evchar.hardware.server;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import cn.evchar.hardware.handler.DeviceAcceptorHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -11,14 +14,16 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 public class DeviceAcceptor {
-	// private static final String SERVER_IP = "0.0.0.0";
+
+	private static final Logger logger = LoggerFactory.getLogger(DeviceAcceptor.class);
+	private static final String SERVER_IP = "0.0.0.0";
 	private static final Integer PORT = 44444;
 	private static final int BACKLOG_SIZE = 1000;
 
 	private static DeviceAcceptor acceptor = null;
 
 	public static DeviceAcceptor getInstance() {
-		System.out.println("deviceAcceptor excute getInstance!");
+		logger.info("DeviceAcceptor excute getInstance!");
 		if (acceptor == null) {
 			acceptor = new DeviceAcceptor();
 			acceptor.start();

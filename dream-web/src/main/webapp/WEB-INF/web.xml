@@ -29,10 +29,32 @@
 		</init-param>
 	</filter>
 
+	<filter>
+		<filter-name>FirstFileter</filter-name>
+		<filter-class>org.dream.web.filter.FirstFileter</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>SecondFileter</filter-name>
+		<filter-class>org.dream.web.filter.SecondFileter</filter-class>
+	</filter>
+
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
+	<!-- filter 的执行顺序，就是web.xml里边配置的 filter-mapping 顺序，哪个早就先执行。 -->
+	<filter-mapping>
+		<filter-name>FirstFileter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SecondFileter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 
 	<servlet>
 		<servlet-name>mySpringMVC</servlet-name>

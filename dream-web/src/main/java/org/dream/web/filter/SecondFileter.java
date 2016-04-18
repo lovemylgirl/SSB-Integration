@@ -13,8 +13,7 @@ public class SecondFileter extends OncePerRequestFilter {
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-			throws ServletException, IOException {
-		
+			throws ServletException, IOException {		
 		System.out.println("SecondFileter pre has excuted !");
 		filterChain.doFilter(request, response);
 		System.out.println("SecondFileter has excuted !");

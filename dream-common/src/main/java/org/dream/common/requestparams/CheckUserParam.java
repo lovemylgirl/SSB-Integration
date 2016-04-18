@@ -8,10 +8,10 @@ public class CheckUserParam {
 
 	private String wechatId;
 
-	@Password
+	//@Password
 	private String password;
 
-	@NotNull
+	//@NotNull
 	private Long id;
 
 	public String getWechatId() {

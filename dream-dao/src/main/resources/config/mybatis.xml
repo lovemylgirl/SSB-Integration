@@ -8,12 +8,23 @@
 		<typeAlias type="org.dream.common.entity.User" alias="_dreamUser" />
 		<typeAlias type="org.dream.common.entity.CarModel" alias="_carModel" />
 		<typeAlias type="org.dream.common.entity.CarBrand" alias="_carBrand" />
+		
+		<typeAlias type="org.dream.common.entity.ShiroPermission" alias="_shiroPermission" />
+		<typeAlias type="org.dream.common.entity.ShiroRole" alias="_shiroRole" />
+		<typeAlias type="org.dream.common.entity.ShiroRolePermssion" alias="_shiroRolePermssion" />
+		<typeAlias type="org.dream.common.entity.ShiroUser" alias="_shiroUser" />
+		<typeAlias type="org.dream.common.entity.ShiroUserRole" alias="_shiroUserRole" />
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mybatis-mapper/mysql_evchar_user.xml" />
-		<mapper resource="mybatis-mapper/mysql_evchar_car_brand.xml"/>
-		<mapper resource="mybatis-mapper/mysql_evchar_car_model.xml"/>
+		<mapper resource="mybatis-mapper/mysql_evchar_car_brand.xml" />
+		<mapper resource="mybatis-mapper/mysql_evchar_car_model.xml" />
+		<mapper resource="mybatis-mapper/shiro/mysql_shiro_user.xml" />
+		<mapper resource="mybatis-mapper/shiro/mysql_shiro_permission.xml" />
+		<mapper resource="mybatis-mapper/shiro/mysql_shiro_role.xml" />
+		<mapper resource="mybatis-mapper/shiro/mysql_shiro_role_permssiom.xml" />
+		<mapper resource="mybatis-mapper/shiro/mysql_shiro_user_role.xml" />
 	</mappers>
 
 </configuration>

@@ -20,6 +20,12 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
+	<!-- password -->
+	<bean id="passwordHelper" class="org.dream.service.shiro.PasswordHelper">
+		<property name="algorithmName" value="md5" />
+		<property name="hashIterations" value="2" />
+	</bean>
+
 
 	<!-- 增加事务管理 -->
 	<bean id="txManager"

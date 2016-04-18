@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -25,12 +26,13 @@ public class UserController extends AbstractController {
 	@Resource
 	private Validator validator;
 
-	@RequestMapping(value = "/getUserInfo")
+	@RequestMapping(value = "/getUserInfo", method = RequestMethod.POST)
 	@ResponseBody
 	public String getUserInfo(CheckUserParam param, HttpServletRequest request, HttpServletResponse response,
 			Errors errors) {
 		validator.validate(param, errors);
 		handleValidFieldError(errors);
+		param.setId(52L);
 		User user = userService.findUserId(param.getId());
 		return createJsonRespone(ApiCode.SUCCESS, user, "");
 	}

@@ -1,9 +1,5 @@
 package org.dream.common.requestparams;
 
-import javax.validation.constraints.NotNull;
-
-import org.dream.common.valid.Password;
-
 public class CheckUserParam {
 
 	private String wechatId;

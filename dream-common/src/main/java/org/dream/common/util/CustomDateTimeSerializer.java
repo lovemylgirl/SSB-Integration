@@ -10,9 +10,9 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 
-public class CustomDateSerializer extends JsonSerializer<Date> {
+public class CustomDateTimeSerializer extends JsonSerializer<Date> {
 
-	public static final String DATE_FORMATE = "yyyy-MM-dd";
+	public static final String DATE_FORMATE = "yyyy-MM-dd HH:mm:ss";
 
 	@Override
 	public void serialize(Date value, JsonGenerator jgen, SerializerProvider provider)

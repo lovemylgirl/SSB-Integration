@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.dream.common.util.CustomDateSerializer;
+import org.dream.common.util.CustomDateTimeSerializer;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -42,11 +43,11 @@ public class User extends AbstractEntity {
 	@Column(name = "head_img_url")
 	private String headImgUrl;
 
-	@JsonSerialize(using=CustomDateSerializer.class)
+	@JsonSerialize(using = CustomDateSerializer.class)
 	@Column(name = "create_time")
 	private Date createTime;
 
-	@JsonSerialize(using=CustomDateSerializer.class)
+	@JsonSerialize(using = CustomDateTimeSerializer.class)
 	@Column(name = "update_time")
 	private Date updateTime;
 

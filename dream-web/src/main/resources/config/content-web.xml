@@ -49,10 +49,18 @@
 
 
 
-	<!-- SpringMVC 静态资源访问 -->
+	<!-- SpringMVC 静态资源访问 图片 js文件 等静态资源 -->
 	<!-- <mvc:resources...前面，要加上<mvc:annotation-driver/>，否则servlet控件器会解析失败 -->
 	<!-- 如果你的 DispatcherServlet 拦截 *.do 这样的 URL，就不存上述问题了 -->
 	<mvc:resources location="/img/" mapping="/img/**" />
+
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8" />
+		<property name="maxUploadSize" value="10485760000" />
+		<property name="maxInMemorySize" value="40960" />
+	</bean>
 
 
 	<!-- 视图解析器 -->

@@ -35,7 +35,8 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
-	<!-- -->
+
+	<!-- shiro -->
 	<aop:config proxy-target-class="true" />
 	<bean
 		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
@@ -43,6 +44,7 @@
 	</bean>
 
 
-	<!-- 扫描切面注解 -->
+	<!-- 扫描切面注解 拦截器-->
 	<aop:aspectj-autoproxy />
+	
 </beans>

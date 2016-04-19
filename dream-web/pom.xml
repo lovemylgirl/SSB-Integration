@@ -49,6 +49,13 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- jstl 视图解析器使用 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 		<!-- evchar begin -->
 		<dependency>
 			<groupId>dream-service</groupId>

@@ -70,6 +70,9 @@
 		</dependency>
 		<!-- log end -->
 
+		<!-- 顽兔多媒体 SDK -->
+
+
 		<dependency>
 			<groupId>dream-common</groupId>
 			<artifactId>dream-common</artifactId>
@@ -95,5 +98,46 @@
 			<version>${dream.version}</version>
 		</dependency>
 
+		<!-- 顽兔多媒体 SDK -->
+		<dependency>
+			<groupId>com.alibaba.media</groupId>
+			<artifactId>sdk</artifactId>
+			<version>1.2.7</version>
+		</dependency>
+
 	</dependencies>
+
+	<!-- TAE Nexus服务器 -->
+	<repositories>
+		<repository>
+			<id>taerepository</id>
+			<url>http://mvnrepo.tae.taobao.com/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>taesnapshots</id>
+			<url>http://mvnrepo.tae.taobao.com/content/repositories/snapshots/ </url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>taereleases</id>
+			<url>http://mvnrepo.tae.taobao.com/content/repositories/releases/ </url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>

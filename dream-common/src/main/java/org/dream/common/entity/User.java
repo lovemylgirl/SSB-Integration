@@ -28,20 +28,23 @@ public class User extends AbstractEntity {
 	@Column(name = "token")
 	private Byte token;
 
+	@Column(name = "nick_name")
+	private String nickName;
+
 	@Column(name = "wechat_id")
 	private String wechatId;
 
-	@Column(name = "nick_name")
-	private String nickName;
+	@Column(name = "real_name")
+	private String realName;
+
+	@Column(name = "head_img_url")
+	private String headImgUrl;
 
 	@Column(name = "mobile")
 	private String mobile;
 
 	@Column(name = "mac_id")
 	private String macId;
-
-	@Column(name = "head_img_url")
-	private String headImgUrl;
 
 	@JsonSerialize(using = CustomDateSerializer.class)
 	@Column(name = "create_time")
@@ -50,9 +53,6 @@ public class User extends AbstractEntity {
 	@JsonSerialize(using = CustomDateTimeSerializer.class)
 	@Column(name = "update_time")
 	private Date updateTime;
-
-	@Column(name = "real_name")
-	private String realName;
 
 	public Long getId() {
 		return id;

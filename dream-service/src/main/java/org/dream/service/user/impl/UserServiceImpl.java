@@ -1,5 +1,7 @@
 package org.dream.service.user.impl;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
@@ -46,6 +48,11 @@ public class UserServiceImpl implements IUserService {
 	@PreDestroy
 	public void destory() {
 		System.out.println("UserServiceImpl destory excuted !");
+	}
+
+	@Override
+	public List<User> findAll() {
+		return userMapper.select(new User());
 	}
 
 }

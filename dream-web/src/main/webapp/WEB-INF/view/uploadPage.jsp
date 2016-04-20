@@ -7,9 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- enctype="multipart/form-data" 如果是上传文件需要加上这种类型 -baidu -->
 	<form action="/upload/uploadFile" method="post" enctype="multipart/form-data">
 		选择文件 : <input type="file" name="file"> 
 		<input type="submit" value="上传">
 	</form>
+	
+	<!-- 下载 -->
+	<a href="./down/download" >下载</a>  
 </body>
 </html>

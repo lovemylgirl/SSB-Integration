@@ -28,13 +28,26 @@
 	<!-- 以下 validator ConversionService 在使用 mvc:annotation-driven 会 自动注册 -->
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="false">
-			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
-				<!-- 更改返回json的编码格式 -->
-				<constructor-arg value="UTF-8" />
-			</bean>
+			<ref bean="stringHttpMessageConverter"/>	
+			<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+         	<ref bean="mappingJackson2HttpMessageConverter"/>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+	
+	<bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
+		<!-- 更改返回json的编码格式 --> 
+		<constructor-arg value="UTF-8" />
+	</bean>
+	
+	<bean id="mappingJackson2HttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		 <property name="supportedMediaTypes">
+              <list>  
+                  <value>text/plain;charset=UTF-8</value>  
+              </list>  
+         </property>
+	</bean>
 
+	
 
 	<!-- shiro -->
 	<aop:config proxy-target-class="true" />
@@ -55,8 +68,8 @@
 	<mvc:resources location="/img/" mapping="/img/**" />
 
 
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<!-- 文件上传 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding" value="utf-8" />
 		<property name="maxUploadSize" value="10485760000" />
 		<property name="maxInMemorySize" value="40960" />
@@ -64,10 +77,8 @@
 
 
 	<!-- 视图解析器 -->
-	<bean id="irViewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.JstlView"></property>
+	<bean id="irViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
 		<property name="prefix" value="/WEB-INF/view/"></property>
 		<property name="suffix" value=".jsp"></property>
 		<property name="order" value="1"></property>

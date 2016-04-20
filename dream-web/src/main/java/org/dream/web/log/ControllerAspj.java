@@ -41,7 +41,7 @@ public class ControllerAspj {
 			}
 		}
 
-		System.out.println("RemoteAddr : " + requset.getRemoteAddr());
+		//System.out.println("RemoteAddr : " + requset.getRemoteAddr());
 
 		try {
 			obj = jp.proceed();

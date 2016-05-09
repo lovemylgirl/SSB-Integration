@@ -4,7 +4,20 @@
 
 <mapper namespace="org.dream.dao.user.UserMapper">
 	<resultMap type="_dreamUser" id="userMap">
+		<id column="id" property="id"/>
+		<result column="token" property="token"/>
+		<result column="nick_name" property="nickName"/>
+		<result column="wechat_id" property="wechatId"/>
+		<result column="real_name" property="realName"/>
+		<result column="head_img_url" property="headImgUrl"/>
+		<result column="mobile" property="mobile"/>
+		<result column="mac_id" property="macId"/>
+		
+		
+		<!-- 最好用代码的方式设置  创建和更新时间，不要使用数据的特性，对迁移可能造成影响 -->
 		<result column="create_time" property="createTime"/>
+		<result column="update_time" property="updateTime"/>
+		
 		<association property="paramMap" javaType="java.util.HashMap">
 			<result property="uTime" column="u_time"/>
 			<result property="uCount" column="u_count"/>
@@ -12,11 +25,22 @@
 	</resultMap>
 	
 	<select id="selectUserChart" parameterType="_dreamUser" resultMap="userMap">
+	<!--
+		5.7 以后 
+		eu.create_time 需要用聚合函数 Min 或者  Max 包围 否则会抛出：
+		ERROR 1140 (42000): In aggregated query without GROUP BY, expression
+		#1 of SELECT list contains nonaggregated column 'eu.create_time'; this
+		is incompatible with sql_mode=only_full_group_by
+		
+		5.7之前不会有此问题，因为 create_time已经包含在u_time中
+		
+		连接： http://dev.mysql.com/doc/refman/5.7/en/group-by-handling.html
+	 -->
 		SELECT 
-		  MIN(eu.create_time) AS create_time,
-		 	 DATE_FORMAT(eu.create_time, #{paramMap.type}) AS u_time,
+			MIN(eu.create_time) AS create_time,
+		 	DATE_FORMAT(eu.create_time, #{paramMap.type}) AS u_time,
 		  	COUNT(1) AS u_count 
-		  	FROM evchar_user eu 
-		  GROUP BY u_time;
+		FROM evchar_user eu 
+		GROUP BY u_time;
 	</select>
 </mapper>

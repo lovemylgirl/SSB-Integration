@@ -14,7 +14,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.dream.common.exception.EvcharException;
 import org.springframework.stereotype.Component;
 
-@Aspect
+//@Aspect
 @Component
 public class ControllerAspj {
 	private static int count = 0;

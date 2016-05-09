@@ -3,5 +3,20 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.dream.dao.user.UserMapper">
-
+	<resultMap type="_dreamUser" id="userMap">
+		<result column="create_time" property="createTime"/>
+		<association property="paramMap" javaType="java.util.HashMap">
+			<result property="uTime" column="u_time"/>
+			<result property="uCount" column="u_count"/>
+		</association>
+	</resultMap>
+	
+	<select id="selectUserChart" parameterType="_dreamUser" resultMap="userMap">
+		SELECT 
+		  MIN(eu.create_time) AS create_time,
+		 	 DATE_FORMAT(eu.create_time, #{paramMap.type}) AS u_time,
+		  	COUNT(1) AS u_count 
+		  	FROM evchar_user eu 
+		  GROUP BY u_time;
+	</select>
 </mapper>

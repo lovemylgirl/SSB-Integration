@@ -1,6 +1,8 @@
 package org.dream.service.user.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -53,6 +55,16 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public List<User> findAll() {
 		return userMapper.select(new User());
+	}
+
+	@Override
+	public List<User> getUserChart(String type) {
+		User user = new User();
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("type", type);
+		user.setParamMap(paramMap);
+		List<User> list = userMapper.selectUserChart(user);
+		return list;
 	}
 
 }

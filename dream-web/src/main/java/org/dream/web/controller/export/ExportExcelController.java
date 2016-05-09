@@ -3,6 +3,7 @@ package org.dream.web.controller.export;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -24,14 +25,20 @@ public class ExportExcelController {
 	private IUserService userService;
 
 	@RequestMapping(value = "/exportExcel")
-	public void getImg(HttpServletRequest request, HttpServletResponse response) {
+	public void exportExcel(HttpServletRequest request, HttpServletResponse response) {
 		String[] headers = { "Serial", "ID", "token", "昵称", "微信号", "姓名", "头像地址", "电话", "mac_id", "创建时间", "更新时间" };
 		List<User> list = userService.findAll();
 		ExportExcel<User> excel = new ExportExcel<>();
 		OutputStream out = null;
 		HSSFWorkbook workbook = null;
 		response.setContentType("application/vnd.ms-excel");
-		response.setHeader("Content-disposition", "attachment;filename=User.xls");
+		String fileName = "卡卡";
+		try {
+			fileName = new String(fileName.getBytes("utf-8"), "iso-8859-1");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
+		response.setHeader("Content-disposition", "attachment;filename=" + fileName + ".xls");
 		try {
 			out = response.getOutputStream();
 			workbook = excel.exportExcel("测试", headers, list, out, "yyyy-MM-dd HH:dd:ss");

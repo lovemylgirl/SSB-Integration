@@ -14,7 +14,7 @@
 	</form>
 	
 	<!-- 下载 -->
-	<a href="./down/download" >下载</a>
-	<a href="/export/exportExcel" >导出</a>    
+	<a href="/down/download" >下载</a>
+	<a href="/export/exportExcel" >导出</a>  
 </body>
 </html>

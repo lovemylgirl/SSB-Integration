@@ -33,16 +33,24 @@ public class UserServiceTest {
 	public void findUserByExample() {
 
 		Example example = new Example(User.class);
-		
+
 		/* 排序 */
 		example.setOrderByClause("id desc , real_name asc");
-		
+
 		example.createCriteria().andEqualTo("realName", "田广楠");
-		
+
 		List<User> list = userMapper.selectByExample(example);
 		for (User u : list) {
 			System.out.println(u.getRealName() + " : " + u.getId());
 		}
-		
+
+	}
+
+	@Test
+	public void getUserChart() {
+		List<User> list = userService.getUserChart("%Y");
+		for (User u : list) {
+			System.out.println(u.getCreateTime() + " : " + u.getParamMap().get("uTime"));
+		}
 	}
 }

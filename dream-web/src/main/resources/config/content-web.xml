@@ -65,6 +65,8 @@
 	<!-- <mvc:resources...前面，要加上<mvc:annotation-driver/>，否则servlet控件器会解析失败 -->
 	<!-- 如果你的 DispatcherServlet 拦截 *.do 这样的 URL，就不存上述问题了 -->
 	<mvc:resources location="/img/" mapping="/img/**" />
+	<!-- No mapping found for HTTP request with URI [/favicon.ico] -->
+	<mvc:resources mapping="/favicon.ico" location="/favicon.ico" />
 
 
 	<!-- 文件上传 -->

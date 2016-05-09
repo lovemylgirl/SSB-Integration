@@ -8,4 +8,5 @@ public interface ICarBrandService {
 
 	List<CarBrand> getAll();
 	
+	List<CarBrand> getAllWithModels(int pageNum,int pageSize );
 }

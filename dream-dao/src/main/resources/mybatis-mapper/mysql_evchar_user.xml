@@ -42,5 +42,5 @@
 		  	COUNT(1) AS u_count 
 		FROM evchar_user eu 
 		GROUP BY u_time;
-	</select>
+	</select>	
 </mapper>

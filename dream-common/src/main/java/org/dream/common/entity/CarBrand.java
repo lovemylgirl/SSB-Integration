@@ -1,11 +1,14 @@
 package org.dream.common.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "evchar_car_brand")
@@ -27,6 +30,9 @@ public class CarBrand extends AbstractEntity {
 	@Column(name = "brand_logo")
 	private String brandLogo;
 
+	@Transient
+	private List<CarModel> carModels;
+	
 	public Long getId() {
 		return id;
 	}
@@ -57,6 +63,14 @@ public class CarBrand extends AbstractEntity {
 
 	public void setBrandLogo(String brandLogo) {
 		this.brandLogo = brandLogo;
+	}
+
+	public List<CarModel> getCarModels() {
+		return carModels;
+	}
+
+	public void setCarModels(List<CarModel> carModels) {
+		this.carModels = carModels;
 	}
 
 }

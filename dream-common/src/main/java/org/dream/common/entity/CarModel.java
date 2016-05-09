@@ -30,7 +30,7 @@ public class CarModel extends AbstractEntity {
 	@Column(name = "model_logo")
 	private String modelLogo;
 
-	@Column(name = "brand_code")
+	@Column(name = "b_code")
 	private String brandCode;
 
 	public Long getId() {

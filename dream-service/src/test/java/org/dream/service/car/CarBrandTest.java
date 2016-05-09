@@ -24,4 +24,10 @@ public class CarBrandTest {
 			System.out.println(cb.getBrandCode() + " : " + cb.getBrandName());
 		}
 	}
+
+	@Test
+	public void getAllWithModels() {
+		List<CarBrand> list = brandService.getAllWithModels(1, 20);
+		System.out.println(list.size());
+	}
 }

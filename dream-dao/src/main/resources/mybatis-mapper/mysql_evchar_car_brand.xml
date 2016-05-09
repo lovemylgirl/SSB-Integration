@@ -3,5 +3,43 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.dream.dao.car.CarBrandMapper">
+	<resultMap type="_carBrand" id="carBrandMap">
+		<id property="id" column="id"/>
+		<result property="brandCode" column="brand_code"/>
+		<result property="brandName" column="brand_name"/>
+		<result property="brandLogo" column="brand_logo"/>
+		
+		<collection property="carModels" ofType="_carModel">
+			<id property="id" column="id"/>
+			<result property="modelCode" column="model_code"/>
+			<result property="modelName" column="model_name"/>
+			<result property="model" column="model"/>
+			<result property="modelLogo" column="model_logo"/>
+			<result property="brandCode" column="brand_code"/>
+		</collection>
+	</resultMap>
 	
+	
+	<!-- 
+	  通用分页插件只适合于单表分页，对于关联查询，只能通过以下方式进行分页  
+	 #注： where 也要写在 分页语句所在的语句中 
+	 
+	 http://blog.csdn.net/isea533/article/details/28921533
+	 -->
+	<select id="getAllWithModels" resultMap="carBrandMap" parameterType="_carBrand">
+		SELECT t.* ,
+		  ecm.id ,
+		  ecm.model_code ,
+		  ecm.model_name ,
+		  ecm.model ,
+		  ecm.model_logo,
+		  ecm.b_code
+		FROM (SELECT * FROM evchar_car_brand ecb  
+		<if test="paramMap !=null and paramMap.start !=null and paramMap.end !=null">
+			LIMIT #{paramMap.start} ,#{paramMap.end}
+		</if>
+		) t 
+		LEFT JOIN evchar_car_model ecm ON t.brand_code=ecm.b_code
+		ORDER BY t.id asc;
+	</select>
 </mapper>

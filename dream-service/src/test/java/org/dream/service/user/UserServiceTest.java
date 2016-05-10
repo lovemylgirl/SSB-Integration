@@ -55,6 +55,10 @@ public class UserServiceTest {
 		}
 	}
 
+	
+	/**
+	 * 关联的结果查询 
+	 * */
 	@Test
 	public void getUserWithAccount() {
 		User user = userService.getUserWithAccount(52L);

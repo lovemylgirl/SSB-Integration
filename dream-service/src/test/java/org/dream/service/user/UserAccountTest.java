@@ -15,6 +15,10 @@ public class UserAccountTest {
 	@Resource
 	private IUserAccountService accountService;
 
+	
+	/**
+	 * 关联的嵌套查询
+	 * */
 	@Test
 	public void getAccountById() {
 		UserAccount account = accountService.getAccountById(1L);

@@ -13,10 +13,11 @@
 		
 		<!-- association的关联的嵌套查询 --> 
 		<!-- 
-			column="{id=user_id}"，在column中id是要执行SQL中接收到的参数，
-			user_id是原SQL中的查询结果。
+			column="{id=user_id}"，在column中id是要执行SQL中接收到的参数，user_id是原SQL中的查询结果。
 			这里是将原SQL查询结果放到将要执行SQL中当条件，
 			当有多个条件时，可以用逗号隔开。
+			
+			如果你想对关联查询的分支sql进行分页查询，通过column={}这种方式传递分页参数也能实现
 		 -->
 		<association property="user" column="{id=user_id}"
 			select="org.dream.dao.user.UserMapper.getUserById"/>

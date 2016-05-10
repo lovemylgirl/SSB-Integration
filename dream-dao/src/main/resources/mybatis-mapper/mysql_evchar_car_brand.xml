@@ -4,6 +4,7 @@
 
 <mapper namespace="org.dream.dao.car.CarBrandMapper">
 	<resultMap type="_carBrand" id="carBrandMap">
+	
 		<id property="id" column="id"/>
 		<result property="brandCode" column="brand_code"/>
 		<result property="brandName" column="brand_name"/>
@@ -17,8 +18,8 @@
 			<result property="modelLogo" column="model_logo"/>
 			<result property="brandCode" column="brand_code"/>
 		</collection>
+		
 	</resultMap>
-	
 	
 	<!-- 
 	  通用分页插件只适合于单表分页，对于关联查询，只能通过以下方式进行分页  

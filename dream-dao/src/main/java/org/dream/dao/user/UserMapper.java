@@ -10,4 +10,7 @@ public interface UserMapper extends Mapper<User> {
 
 	List<User> selectUserChart(User user);
 	
+	User getUserWithAccount(User user);
+	
+	User getUserById(User user);
 }

@@ -67,4 +67,18 @@ public class UserServiceImpl implements IUserService {
 		return list;
 	}
 
+	@Override
+	public User getUserWithAccount(Long userId) {
+		User user = new User();
+		user.setId(userId);
+		return userMapper.getUserWithAccount(user);
+	}
+
+	@Override
+	public User getUserById(Long userId) {
+		User user = new User();
+		user.setId(userId);
+		return userMapper.getUserById(user);
+	}
+
 }

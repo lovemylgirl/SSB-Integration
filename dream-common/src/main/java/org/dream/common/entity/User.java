@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.dream.common.util.CustomDateSerializer;
 import org.dream.common.util.CustomDateTimeSerializer;
@@ -54,6 +55,9 @@ public class User extends AbstractEntity {
 	@Column(name = "update_time")
 	private Date updateTime;
 
+	@Transient
+	private UserAccount userAccount;
+	
 	public Long getId() {
 		return id;
 	}
@@ -133,4 +137,19 @@ public class User extends AbstractEntity {
 	public void setRealName(String realName) {
 		this.realName = realName;
 	}
+
+	public UserAccount getUserAccount() {
+		return userAccount;
+	}
+
+	public void setUserAccount(UserAccount userAccount) {
+		this.userAccount = userAccount;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", token=" + token + ", nickName=" + nickName + ", wechatId=" + wechatId
+				+ ", realName=" + realName + ", headImgUrl=" + headImgUrl + ", mobile=" + mobile + ", macId=" + macId
+				+ ", createTime=" + createTime + ", updateTime=" + updateTime + ", userAccount=" + userAccount + "]";
+	}	
 }

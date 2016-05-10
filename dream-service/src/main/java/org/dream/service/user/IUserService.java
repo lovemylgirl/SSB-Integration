@@ -12,4 +12,7 @@ public interface IUserService {
 
 	List<User> getUserChart(String type);
 
+	User getUserWithAccount(Long userId);
+	
+	User getUserById(Long userId);
 }

@@ -27,7 +27,7 @@ public class CarBrandTest {
 
 	@Test
 	public void getAllWithModels() {
-		List<CarBrand> list = brandService.getAllWithModels(1, 20);
+		List<CarBrand> list = brandService.getAllWithModels(1, 10);
 		System.out.println(list.size());
 	}
 }

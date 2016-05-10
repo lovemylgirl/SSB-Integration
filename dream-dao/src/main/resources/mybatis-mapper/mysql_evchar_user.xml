@@ -22,6 +22,35 @@
 			<result property="uTime" column="u_time"/>
 			<result property="uCount" column="u_count"/>
 		</association>
+		
+		<!-- Association关联的结果查询   --> 
+		<association property="userAccount" resultMap="accountMap"/>
+
+		
+		 <!-- 
+			对于不需要重用嵌套对象的情况，还可以直接这么写
+			这里面新增了一个 javaType 属性
+		 -->
+		 <!--  
+		<association property="userAccount" javaType="_dreamAccount">
+			<id column="eua_id" property="id"/>
+			<result column="user_id" property="userId"/>
+			<result column="balance" property="balance"/>
+			<result column="point" property="point"/>
+			<result column="eua_create_time" property="createTime"/>
+			<result column="eua_update_time" property="updateTime"/>
+		</association>
+		-->
+	</resultMap>
+	
+	<!-- 对于有重名的字段 特别是id字段，可以再sql语句中重命名， 然后在column中与之对应即可 -->
+	<resultMap type="_dreamAccount" id="accountMap">
+		<id column="eua_id" property="id"/>
+		<result column="user_id" property="userId"/>
+		<result column="balance" property="balance"/>
+		<result column="point" property="point"/>
+		<result column="eua_create_time" property="createTime"/>
+		<result column="eua_update_time" property="updateTime"/>
 	</resultMap>
 	
 	<select id="selectUserChart" parameterType="_dreamUser" resultMap="userMap">
@@ -43,4 +72,28 @@
 		FROM evchar_user eu 
 		GROUP BY u_time;
 	</select>	
+	
+	<select id="getUserWithAccount" parameterType="_dreamUser" resultMap="userMap">
+		SELECT 
+		  eu.*,
+		  eua.id AS eua_id,eua.user_id,eua.balance,
+		  eua.point,eua.total_point,eua.create_time AS eua_create_time,
+		  eua.update_time AS eua_update_time,eua.version
+		FROM evchar_user eu LEFT JOIN evchar_user_account eua ON eu.id = eua.user_id 
+  		<where>
+  			<if test="id != null">
+  				eu.id = #{id}
+  			</if>
+  		</where>
+	</select>
+	
+	<!-- 如果使用resultType 有问题，字段没有完全映射  暂时没有解决-->
+	<select id="getUserById" parameterType="long" resultMap="userMap">
+		SELECT eu.* FROM evchar_user eu 
+		<where>
+			<if test="id != null">
+				eu.id = #{id}
+			</if>
+		</where>
+	</select>
 </mapper>

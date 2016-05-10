@@ -27,6 +27,7 @@ public class UserServiceTest {
 	public void findUserById() {
 		User user = userService.findUserId(52L);
 		System.out.println(user.getWechatId() + " : " + user.getNickName());
+		System.out.println(user);
 	}
 
 	@Test
@@ -52,5 +53,19 @@ public class UserServiceTest {
 		for (User u : list) {
 			System.out.println(u.getCreateTime() + " : " + u.getParamMap().get("uTime"));
 		}
+	}
+
+	@Test
+	public void getUserWithAccount() {
+		User user = userService.getUserWithAccount(52L);
+		System.out.println(user);
+	}
+	
+	
+
+	@Test
+	public void getUserById() {
+		User user = userService.getUserById(52L);
+		System.out.println(user);
 	}
 }

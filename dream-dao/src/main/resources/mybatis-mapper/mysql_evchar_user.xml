@@ -88,7 +88,7 @@
 	</select>
 	
 	<!-- 如果使用resultType 有问题，字段没有完全映射  暂时没有解决-->
-	<select id="getUserById" parameterType="long" resultMap="userMap">
+	<select id="getUserById" parameterType="_dreamUser" resultMap="userMap">
 		SELECT eu.* FROM evchar_user eu 
 		<where>
 			<if test="id != null">

@@ -10,5 +10,29 @@
 		<result column="point" property="point"/>
 		<result column="create_time" property="createTime"/>
 		<result column="update_time" property="updateTime"/>
+		
+		<!-- association的关联的嵌套查询 --> 
+		<!-- 
+			column="{id=user_id}"，在column中id是要执行SQL中接收到的参数，
+			user_id是原SQL中的查询结果。
+			这里是将原SQL查询结果放到将要执行SQL中当条件，
+			当有多个条件时，可以用逗号隔开。
+		 -->
+		<association property="user" column="{id=user_id}"
+			select="org.dream.dao.user.UserMapper.getUserById"/>
+	
 	</resultMap>
+	
+	<select id="getAccountById" parameterType="_dreamAccount" resultMap="accountMap">
+		SELECT 
+			eua.id,eua.user_id,
+			eua.balance,eua.point,
+			eua.total_point,
+			eua.create_time,
+			eua.update_time
+		FROM evchar_user_account eua 
+		<where>
+			id = #{id}
+		</where>
+	</select>
 </mapper>

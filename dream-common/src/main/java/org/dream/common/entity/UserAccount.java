@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "evchar_user_account")
@@ -34,6 +35,9 @@ public class UserAccount extends AbstractEntity {
 
 	@Column(name = "update_time")
 	private Date updateTime;
+	
+	@Transient
+	private User user;
 
 	public Long getId() {
 		return id;
@@ -83,9 +87,17 @@ public class UserAccount extends AbstractEntity {
 		this.updateTime = updateTime;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
 		return "UserAccount [id=" + id + ", userId=" + userId + ", balance=" + balance + ", point=" + point
-				+ ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
+				+ ", createTime=" + createTime + ", updateTime=" + updateTime + ", user=" + user + "]";
 	}	
 }

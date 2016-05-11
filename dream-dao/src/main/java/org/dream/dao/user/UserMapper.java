@@ -13,4 +13,6 @@ public interface UserMapper extends Mapper<User> {
 	User getUserWithAccount(User user);
 	
 	User getUserById(User user);
+	
+	int saveUser(User user);
 }

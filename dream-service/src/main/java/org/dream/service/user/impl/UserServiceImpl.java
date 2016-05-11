@@ -81,4 +81,9 @@ public class UserServiceImpl implements IUserService {
 		return userMapper.getUserById(user);
 	}
 
+	@Override
+	public int savaUser(User user) {
+		return userMapper.saveUser(user);
+	}
+
 }

@@ -15,4 +15,6 @@ public interface IUserService {
 	User getUserWithAccount(Long userId);
 	
 	User getUserById(Long userId);
+	
+	int savaUser(User user);
 }

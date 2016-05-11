@@ -16,6 +16,16 @@
 		<typeAlias type="org.dream.common.entity.ShiroUserRole" alias="_shiroUserRole" />
 	</typeAliases>
 
+	<typeHandlers>
+		<!-- 
+		此处未添加 javaType 与  jdbcType 
+		
+		http://blog.csdn.net/isea533/article/details/43986671
+		-->
+		
+		<typeHandler handler="org.dream.common.typehandler.BooleanTypeHandler"/>
+	</typeHandlers>
+
 	<mappers>
 		<mapper resource="mybatis-mapper/mysql_evchar_user.xml" />
 		<mapper resource="mybatis-mapper/mysql_evchar_user_account.xml" />

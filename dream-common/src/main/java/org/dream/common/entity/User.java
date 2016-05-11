@@ -55,9 +55,15 @@ public class User extends AbstractEntity {
 	@Column(name = "update_time")
 	private Date updateTime;
 
+	@Column(name = "user_status")
+	private Boolean userStatus;
+
 	@Transient
 	private UserAccount userAccount;
-	
+
+	@Column(name = "is_owner")
+	private Boolean isOwner;
+
 	public Long getId() {
 		return id;
 	}
@@ -146,10 +152,27 @@ public class User extends AbstractEntity {
 		this.userAccount = userAccount;
 	}
 
+	public Boolean getUserStatus() {
+		return userStatus;
+	}
+
+	public void setUserStatus(Boolean userStatus) {
+		this.userStatus = userStatus;
+	}
+
+	public Boolean getIsOwner() {
+		return isOwner;
+	}
+
+	public void setIsOwner(Boolean isOwner) {
+		this.isOwner = isOwner;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", token=" + token + ", nickName=" + nickName + ", wechatId=" + wechatId
 				+ ", realName=" + realName + ", headImgUrl=" + headImgUrl + ", mobile=" + mobile + ", macId=" + macId
-				+ ", createTime=" + createTime + ", updateTime=" + updateTime + ", userAccount=" + userAccount + "]";
-	}	
+				+ ", createTime=" + createTime + ", updateTime=" + updateTime + ", userStatus=" + userStatus
+				+ ", userAccount=" + userAccount + ", isOwner=" + isOwner + "]";
+	}
 }

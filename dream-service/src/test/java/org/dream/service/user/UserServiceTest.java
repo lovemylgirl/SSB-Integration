@@ -1,5 +1,6 @@
 package org.dream.service.user;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -55,21 +56,35 @@ public class UserServiceTest {
 		}
 	}
 
-	
 	/**
-	 * 关联的结果查询 
-	 * */
+	 * 关联的结果查询
+	 */
 	@Test
 	public void getUserWithAccount() {
 		User user = userService.getUserWithAccount(52L);
 		System.out.println(user);
 	}
-	
-	
 
 	@Test
 	public void getUserById() {
-		User user = userService.getUserById(52L);
+		User user = userService.getUserById(59L);
 		System.out.println(user);
+	}
+
+	@Test
+	public void saveUser() {
+		User user = new User();
+		user.setCreateTime(new Date());
+		user.setHeadImgUrl("");
+		user.setMacId("");
+		user.setMobile("15888836738");
+		user.setNickName("阿花");
+		user.setRealName("田广楠");
+		user.setToken((byte) 4);
+		user.setUpdateTime(new Date());
+		user.setUserStatus(false);
+		user.setWechatId("22345678");
+		user.setIsOwner(true);
+		userService.savaUser(user);
 	}
 }

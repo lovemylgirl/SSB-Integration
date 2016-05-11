@@ -12,6 +12,8 @@
 		<result column="head_img_url" property="headImgUrl"/>
 		<result column="mobile" property="mobile"/>
 		<result column="mac_id" property="macId"/>
+		<result column="user_status" property="userStatus" typeHandler="org.dream.common.typehandler.BooleanTypeHandler"/>
+		<result column="is_owner" property="isOwner"/>
 		
 		
 		<!-- 最好用代码的方式设置  创建和更新时间，不要使用数据的特性，对迁移可能造成影响 -->
@@ -96,4 +98,16 @@
 			</if>
 		</where>
 	</select>
+	
+	<insert id="saveUser" parameterType="_dreamUser">
+		INSERT INTO dream_evchar.evchar_user
+		(token,user_status,wechat_id,nick_name,real_name,head_img_url,mobile,mac_id,create_time,update_time,is_owner)
+		VALUES
+		(#{token},
+		<!-- userStatus 需要指明所用的handler 如果指明，否则使用mybatis默认的 -->
+		#{userStatus,typeHandler=org.dream.common.typehandler.BooleanTypeHandler},
+		#{wechatId},#{nickName},#{realName},#{headImgUrl},#{mobile},#{macId},#{createTime},#{updateTime},
+		<!-- isOwner 未指明handler ，使用了默认的 handler -->
+		#{isOwner})
+	</insert>
 </mapper>

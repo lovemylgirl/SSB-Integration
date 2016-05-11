@@ -105,6 +105,12 @@
 			<version>1.2.7</version>
 		</dependency>
 
+		<!--  -->
+		<dependency>
+			<groupId>com.foundationdb</groupId>
+			<artifactId>fdb-sql-parser</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<!-- TAE Nexus服务器 -->

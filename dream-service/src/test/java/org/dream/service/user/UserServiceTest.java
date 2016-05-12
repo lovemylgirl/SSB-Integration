@@ -25,6 +25,12 @@ public class UserServiceTest {
 	@Resource
 	private UserMapper userMapper;
 
+	
+	/**
+	 * ########使用了自定义的 TypeHandler 这个方法
+	 * 
+	 * 或者使用注解的方式，没试验
+	 * */
 	@Test
 	public void findUserById() {
 		User user = userService.findUserId(52L);

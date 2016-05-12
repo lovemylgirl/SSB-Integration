@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.dream.common.typehandler.UserType;
 import org.dream.common.util.CustomDateSerializer;
 import org.dream.common.util.CustomDateTimeSerializer;
 
@@ -63,6 +64,15 @@ public class User extends AbstractEntity {
 
 	@Column(name = "is_owner")
 	private Boolean isOwner;
+
+	@Column(name = "user_type")
+	private UserType userType;
+
+	@Column(name = "user_type_def")
+	private UserType userTypeDef;
+
+	@Column(name = "user_type_ori")
+	private UserType userTypeOri;
 
 	public Long getId() {
 		return id;
@@ -174,5 +184,29 @@ public class User extends AbstractEntity {
 				+ ", realName=" + realName + ", headImgUrl=" + headImgUrl + ", mobile=" + mobile + ", macId=" + macId
 				+ ", createTime=" + createTime + ", updateTime=" + updateTime + ", userStatus=" + userStatus
 				+ ", userAccount=" + userAccount + ", isOwner=" + isOwner + "]";
+	}
+
+	public UserType getUserType() {
+		return userType;
+	}
+
+	public void setUserType(UserType userType) {
+		this.userType = userType;
+	}
+
+	public UserType getUserTypeDef() {
+		return userTypeDef;
+	}
+
+	public void setUserTypeDef(UserType userTypeDef) {
+		this.userTypeDef = userTypeDef;
+	}
+
+	public UserType getUserTypeOri() {
+		return userTypeOri;
+	}
+
+	public void setUserTypeOri(UserType userTypeOri) {
+		this.userTypeOri = userTypeOri;
 	}
 }

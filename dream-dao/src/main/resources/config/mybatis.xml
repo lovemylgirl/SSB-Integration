@@ -22,8 +22,19 @@
 		
 		http://blog.csdn.net/isea533/article/details/43986671
 		-->
+		<typeHandler handler="org.dream.common.typehandler.BooleanTypeHandler"/> 
 		
-		<typeHandler handler="org.dream.common.typehandler.BooleanTypeHandler"/>
+		
+		<!-- 
+			此处一定要带上javaType 否则会 说 ValuedEnumTypeHandler 没有构造函数可以初始化
+			因为我们定义的ValuedEnumTypeHandler 只有一个有参的构造函数
+			
+			注：没有javaType 会调用无参构造函数，也许~
+		-->
+		<typeHandler handler="org.dream.common.typehandler.ValuedEnumTypeHandler" 
+			javaType="org.dream.common.typehandler.UserType"/>
+		
+		
 	</typeHandlers>
 
 	<mappers>

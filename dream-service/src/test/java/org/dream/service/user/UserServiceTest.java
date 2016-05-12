@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.dream.common.entity.User;
 import org.dream.dao.user.UserMapper;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -67,11 +68,12 @@ public class UserServiceTest {
 
 	@Test
 	public void getUserById() {
-		User user = userService.getUserById(59L);
+		User user = userService.getUserById(52L);
 		System.out.println(user);
 	}
 
 	@Test
+	@Ignore/***/
 	public void saveUser() {
 		User user = new User();
 		user.setCreateTime(new Date());
@@ -83,7 +85,7 @@ public class UserServiceTest {
 		user.setToken((byte) 4);
 		user.setUpdateTime(new Date());
 		user.setUserStatus(false);
-		user.setWechatId("22345678");
+		user.setWechatId("22345678");/*此属性有唯一索引，请注意*/
 		user.setIsOwner(true);
 		userService.savaUser(user);
 	}

@@ -15,6 +15,17 @@
 		<result column="user_status" property="userStatus" typeHandler="org.dream.common.typehandler.BooleanTypeHandler"/>
 		<result column="is_owner" property="isOwner"/>
 		
+		<!-- 
+		 	mybatis提供了EnumTypeHandler和EnumOrdinalTypeHandler完成枚举类型的转换
+		 	两者的功能已经基本满足了日常的使用。
+		 	但是可能有这样的需求：由于某种原因，
+		 	我们不想使用枚举的name和ordinal作为数据存储字段
+		 	
+		 -->
+		<result column="user_type" property="userType" typeHandler="org.dream.common.typehandler.ValuedEnumTypeHandler"
+			javaType="org.dream.common.typehandler.UserType"/>
+		<result column="user_type_def" property="userTypeDef" typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
+		<result column="user_type_ori" property="userTypeOri" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
 		
 		<!-- 最好用代码的方式设置  创建和更新时间，不要使用数据的特性，对迁移可能造成影响 -->
 		<result column="create_time" property="createTime"/>

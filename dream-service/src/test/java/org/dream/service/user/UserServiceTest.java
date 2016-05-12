@@ -30,6 +30,8 @@ public class UserServiceTest {
 	 * ########使用了自定义的 TypeHandler 这个方法
 	 * 
 	 * 或者使用注解的方式，没试验
+	 * 
+	 * http://www.tuicool.com/articles/zYz6je
 	 * */
 	@Test
 	public void findUserById() {

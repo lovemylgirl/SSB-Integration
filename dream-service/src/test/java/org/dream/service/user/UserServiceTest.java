@@ -32,6 +32,8 @@ public class UserServiceTest {
 	 * 或者使用注解的方式，没试验
 	 * 
 	 * http://www.tuicool.com/articles/zYz6je
+	 * 
+	 * @MappedTypes @MappedJdbcTypes
 	 * */
 	@Test
 	public void findUserById() {

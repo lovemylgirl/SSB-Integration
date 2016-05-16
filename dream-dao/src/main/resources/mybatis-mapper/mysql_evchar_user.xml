@@ -22,8 +22,7 @@
 		 	我们不想使用枚举的name和ordinal作为数据存储字段
 		 	
 		 -->
-		<result column="user_type" property="userType" typeHandler="org.dream.common.typehandler.ValuedEnumTypeHandler"
-			javaType="org.dream.common.typehandler.UserType"/>
+		<result column="user_type" property="userType" typeHandler="org.dream.common.typehandler.ValuedEnumTypeHandler"/>
 		<result column="user_type_def" property="userTypeDef" typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
 		<result column="user_type_ori" property="userTypeOri" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
 		
@@ -102,12 +101,8 @@
 	
 	<!-- 如果使用resultType 有问题，字段没有完全映射  暂时没有解决-->
 	<select id="getUserById" parameterType="_dreamUser" resultMap="userMap">
-		SELECT eu.* FROM evchar_user eu 
-		<where>
-			<if test="id != null">
-				eu.id = #{id}
-			</if>
-		</where>
+		SELECT eu.* FROM evchar_user eu WHERE eu.id = #{id}
+
 	</select>
 	
 	<insert id="saveUser" parameterType="_dreamUser">

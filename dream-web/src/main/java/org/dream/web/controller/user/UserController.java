@@ -33,7 +33,7 @@ public class UserController extends AbstractController {
 		validator.validate(param, errors);
 		handleValidFieldError(errors);
 		param.setId(52L);
-		User user = userService.findUserId(param.getId());
+		User user = userService.getUserById(param.getId());
 		return createJsonRespone(ApiCode.SUCCESS, user, "");
 	}
 }

@@ -3,7 +3,6 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-
 	<typeAliases>
 		<typeAlias type="org.dream.common.entity.User" alias="_dreamUser" />
 		<typeAlias type="org.dream.common.entity.UserAccount" alias="_dreamAccount"/>
@@ -33,8 +32,6 @@
 		-->
 		<typeHandler handler="org.dream.common.typehandler.ValuedEnumTypeHandler" 
 			javaType="org.dream.common.typehandler.UserType"/>
-		
-		
 	</typeHandlers>
 
 	<mappers>

@@ -32,8 +32,7 @@
 			eua.create_time,
 			eua.update_time
 		FROM evchar_user_account eua 
-		<where>
+		WHERE
 			id = #{id}
-		</where>
 	</select>
 </mapper>
